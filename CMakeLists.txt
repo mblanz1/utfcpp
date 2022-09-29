@@ -1,6 +1,12 @@
 cmake_minimum_required (VERSION 3.0.2)
 project (utf8cpp VERSION 3.2 LANGUAGES CXX)
 
+if (POLICY CMP0077)
+    # Allow CMake 3.13+ to override options when using FetchContent / add_subdirectory.
+    cmake_policy(SET CMP0077 NEW)
+endif ()
+
+
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
     set(IS_ROOT_PROJECT ON)
 else()
